@@ -144,10 +144,10 @@ class _HukumViewState extends State<HukumView> {
                         );
                       },
                       child: ListTile(
-                        tileColor: Colors.white38,
-                        hoverColor: Colors.black26,
+                        // tileColor: Colors.white38,
+                        // hoverColor: Colors.black26,
                         //contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                        leading: Icon(Icons.picture_as_pdf, color: Colors.black),
+                        leading: Icon(Icons.picture_as_pdf),
                         title: Text(this.uuList?.elementAt(index)?.title ?? 'Loading...'),
                         subtitle: Text(this.uuList?.elementAt(index)?.subtitle ?? ''),
                         trailing: Icon(Icons.navigate_next)
@@ -162,10 +162,10 @@ class _HukumViewState extends State<HukumView> {
                           );
                         },
                         child: ListTile(
-                          tileColor: Colors.white38,
-                          hoverColor: Colors.black26,
+                          // tileColor: Colors.white38,
+                          // hoverColor: Colors.black26,
                           //contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                          leading: Icon(Icons.picture_as_pdf, color: Colors.black),
+                          leading: Icon(Icons.picture_as_pdf),
                           title: Text(this.uuList?.elementAt(index)?.title ?? 'Loading...'),
                           subtitle: Text(this.uuList?.elementAt(index)?.subtitle ?? ''),
                           trailing: Icon(Icons.navigate_next)

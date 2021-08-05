@@ -123,16 +123,16 @@ class _BeritaViewState extends State<BeritaView> {
                                       margin: EdgeInsets.fromLTRB(5, 3, 5, 3),
                                       height: 200,
                                       //width: 400,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        // color: Colors.grey,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.25),
-                                            offset: Offset(3, 5)
-                                            ),
-                                        ],
-                                      ),
+                                      // decoration: BoxDecoration(
+                                      //   borderRadius: BorderRadius.circular(10),
+                                      //   // color: Colors.grey,
+                                      //   boxShadow: [
+                                      //     BoxShadow(
+                                      //       color: Colors.grey.withOpacity(0.25),
+                                      //       offset: Offset(3, 5)
+                                      //       ),
+                                      //   ],
+                                      // ),
                                       child: CachedNetworkImage(
                                         imageUrl: this.dataList?.elementAt(index)?.gambar,
                                         imageBuilder: (context, imageProvider) => Container(
@@ -144,7 +144,7 @@ class _BeritaViewState extends State<BeritaView> {
                                           // ),
                                           image: DecorationImage(
                                             image: imageProvider,
-                                            fit: BoxFit.cover,
+                                            //fit: BoxFit.cover,
                                             //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
                                           ),
                                         ),
@@ -166,13 +166,13 @@ class _BeritaViewState extends State<BeritaView> {
                                         ),
                                       ),
                                     ),    
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          Text(this.dataList.elementAt(index).views.toString() ?? '')
-                                        ],
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   child: Row(
+                                    //     children: [
+                                    //       Text(this.dataList.elementAt(index).views.toString() ?? '')
+                                    //     ],
+                                    //   ),
+                                    // ),
                                     Container(
                                       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
                                       margin: EdgeInsets.fromLTRB(5, 10, 5, 10),

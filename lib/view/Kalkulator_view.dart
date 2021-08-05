@@ -203,14 +203,14 @@ class _KalkulatorViewState extends State<KalkulatorView> {
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
             decoration: BoxDecoration(
               //borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              border: Border.all(color: Colors.black),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.25),
-                  offset: Offset(3, 5)
-                ),
-              ],
+              //color: Colors.white,
+              border: Border.all(color: Colors.grey),
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Colors.grey.withOpacity(0.25),
+              //     offset: Offset(3, 5)
+              //   ),
+              // ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,7 +241,7 @@ class _KalkulatorViewState extends State<KalkulatorView> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: Colors.black
+                        color: Colors.grey
                       )
                     )
                   ),
@@ -487,13 +487,13 @@ class _KalkulatorViewState extends State<KalkulatorView> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.grey),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.25),
-                offset: Offset(3, 5)
-              ),
-            ],
+            //color: Colors.white,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.25),
+            //     offset: Offset(3, 5)
+            //   ),
+            // ],
           ),
           child: DropdownButton<String>(
             value: this._chosenValue,
@@ -502,7 +502,7 @@ class _KalkulatorViewState extends State<KalkulatorView> {
             iconSize: 30,
             //elevation: 5,
             isExpanded: true,
-            style: TextStyle(color: Colors.black),
+            //style: TextStyle(color: Colors.black),
 
             items: itemsdrpdwn().map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(

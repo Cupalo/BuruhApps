@@ -207,13 +207,14 @@ class _UMKViewState extends State<UMKView> {
         width: MediaQuery.of(context).size.width*0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.35),
-                offset: Offset(3, 5)
-              )
-            ],
+          border: Border.all(color: Colors.grey),
+          //color: Colors.white,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.35),
+            //     offset: Offset(3, 5)
+            //   )
+            // ],
           ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -224,7 +225,7 @@ class _UMKViewState extends State<UMKView> {
               //color: Colors.red,
               child: Text(
                 this.umrList?.elementAt(index)?.title?.replaceAll(RegExp(r'\d'), '') ?? 'Loading . . .', 
-                style: TextStyle(fontSize: 16, color: Colors.black),
+                style: TextStyle(fontSize: 16),
               ),
             ),
             Container(
@@ -232,7 +233,7 @@ class _UMKViewState extends State<UMKView> {
               //color: Colors.red,
               child: Text(
                 this.umrList?.elementAt(index)?.cost ?? 'slow broo', 
-                style: TextStyle(fontSize: 16, color: Colors.black),
+                style: TextStyle(fontSize: 16),
               )
             )
           ],
