@@ -1,6 +1,6 @@
-import 'dart:ffi';
+//import 'dart:ffi';
 
-import 'package:flutter/painting.dart';
+//import 'package:flutter/painting.dart';
 import 'package:http/http.dart' as http;
 import 'package:buruh_apps/model/datahukum.dart';
 import 'package:html/dom.dart';
@@ -11,26 +11,10 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
 class DbHukum{
-// DatabaseHandler {
-//   Future<Database> initializeDB() async {
-//     String path = await getDatabasesPath();
-//     return openDatabase(
-//       join(path, 'example.db'),
-//       onCreate: (database, version) async {
-//         await database.execute(
-//           "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL,age INTEGER NOT NULL, country TEXT NOT NULL, email TEXT)",
-//         );
-//       },
-//       version: 1,
-//     );
-//   }
+
   static DbHukum _dbHukum;
   static Database _database;  
   
-  //Data data;
-
-  //Client _client;
-
   DbHukum._createObject();
 
   factory DbHukum() {
@@ -61,7 +45,7 @@ class DbHukum{
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         url TEXT,
-        subtitle TEXT,
+        subtitle TEXT
       )
     ''');
   }
@@ -155,15 +139,15 @@ class DbHukum{
               print("url : "+url);
               jumlahdata++;
 
-              // if(isNotEmpty==0){
-              //   final datahukum = DataHukum(id: jumlahdata,title: title, url: url, subtitle: subtitle);
-              //   //update(datahukum).whenComplete(() => print("update success"+ jumlahdata.toString()));
-              //   allData.add(datahukum);
-              // }else{
-              //   final datahukum = DataHukum(title: title, url: url, subtitle: subtitle);
-              //   //insert(datahukum).whenComplete(() => print("insert success"+ jumlahdata.toString()));
-              //   allData.add(datahukum);
-              // }
+              if(isNotEmpty==0){
+                final datahukum = DataHukum(id: jumlahdata,title: title, url: url, subtitle: subtitle);
+                update(datahukum).whenComplete(() => print("update success"+ jumlahdata.toString()));
+                allData.add(datahukum);
+              }else{
+                final datahukum = DataHukum(title: title, url: url, subtitle: subtitle);
+                insert(datahukum).whenComplete(() => print("insert success"+ jumlahdata.toString()));
+                allData.add(datahukum);
+              }
               // print(allData.elementAt(jumlahdata).title);
               // print(allData.elementAt(jumlahdata).subtitle);
               // print(allData.elementAt(jumlahdata).url);
@@ -172,10 +156,10 @@ class DbHukum{
         }
       }
     }
-    // print(allData.elementAt(1).title);
-    // print(allData.elementAt(1).subtitle);
-    // print(allData.elementAt(1).url);
-    //print("allData "+allData.length.toString());
+    print("Title : "+allData.elementAt(1).title);
+    print("Subtitle : "+allData.elementAt(1).subtitle);
+    print("Url : "+allData.elementAt(1).url);
+    print("allData "+allData.length.toString());
     //return allData;
   }
 }

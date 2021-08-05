@@ -7,9 +7,10 @@ class Data {
   String tabel;
   String authors;
   String date;
-  //List<List<String>> tabel;
+  String category;
+  int views;
 
-  Data({this.id, this.title, this.url, this.gambar, this.isi, this.tabel, this.authors, this.date});
+  Data({this.id, this.title, this.url, this.gambar, this.isi, this.tabel, this.authors, this.date, this.category, this.views});
 
   Data.fromMap(Map<String, dynamic> map) {
     this.id = map['id'];
@@ -20,6 +21,8 @@ class Data {
     this.tabel = map['tabel'];
     this.authors = map['authors'];
     this.date = map['date'];
+    this.category = map['category'];
+    this.views = map['views'];
   }
   //getter dan setter (mengambil dan mengisi data kedalam object)
   // getter
@@ -52,6 +55,8 @@ class Data {
     map['tabel'] = tabel;
     map['authors'] = authors;
     map['date'] = date;
+    map['category'] = category;
+    map['views'] = views;
     return map;
   }  
 

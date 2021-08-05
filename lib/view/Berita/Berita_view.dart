@@ -6,10 +6,10 @@ import 'package:buruh_apps/control/dbhelper.dart';
 import 'package:flutter/material.dart';
 //import 'package:web_scraper/web_scraper.dart';
 //import 'package:flutter_splashscreen/model/berita.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:html/parser.dart' as parser;
-import 'package:html/dom.dart' as dom;
+// import 'package:html/parser.dart' as parser;
+// import 'package:html/dom.dart' as dom;
 import 'package:buruh_apps/model/data.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -35,151 +35,8 @@ class _BeritaViewState extends State<BeritaView> {
   var _beritaview;
   _BeritaViewState(this._beritaview);
 
-//   //List<String> isi = [];
-//   List<String> isi = List();
-//   //String judul;
-//   //String gambar;
-//   List<String> judul = List();
-//   List<String> gambar = List();
-  
-//   List<String> struktur =List();
-//   String cek;
-//   int rows=0;
-//   int cols=0;
-//   var tabel =List.generate(20, (i) => List.generate(6, (j) => ""));
-//   //List<List<String>> tabel;
-//   //List<String> tabel = List.generate(4, (index) => List(3));
-//   int itemtabel=-1;
-
-//   //int i=0;
-//     _getisi() async {
-//     final response = await http.get(_beritaview);
-//     dom.Document document = parser.parse(response.body);
-    
-//     setState(() {
-//       final header = document.getElementsByClassName('entry-header');
-//       final img = document.getElementsByClassName('single-featured-image');
-//       final elements = document.getElementsByClassName('entry-content entry clearfix'); 
-//       judul = header.map((e) => e.getElementsByTagName('h1')[0].innerHtml).toList();
-//       gambar = img.map((e) => e.getElementsByTagName('img')[0].attributes['src']).toList();
-//       //int ind=0;
-      
-//       String p;
-//       for(var i=0; i < elements[0].children.length; i++ ){
-//         // print(i);
-//         // print(elements[0].children);
-//         // print(elements[0].children.elementAt(i).localName);
-//         if(elements[0].children.elementAt(i).localName == 'table'){
-//           cek="tabel";
-//           struktur.add(cek);
-//           //print('ok');
-//           // print(elements[0].children.elementAt(i));
-//           //int item=0;
-//           for(int k=0; k<elements[0].children.elementAt(i).getElementsByTagName('tr').length; k++){
-//             //print(k+1);
-//             final td = elements[0].children.elementAt(i).children.elementAt(0).children.elementAt(k).children;
-//             //print(elements[0].children.elementAt(i).children.elementAt(0).children.elementAt(k).children.elementAt(0).innerHtml);
-//             //print();
-//             // if(td.elementAt(k).localName == 'td'){
-//               String part=" ";
-//               //row=false;
-//               p="tabel";
-//               isi.add(p);
-//               for(int l=0; l<td.length; l++){
-//                 //item++;
-//                 //print(l+10);
-//                 //print(td.elementAt(l).innerHtml);
-//                 //part = part + td.elementAt(l).innerHtml.padLeft(10).padRight(20);
-//                 part = td.elementAt(l).innerHtml;
-//                 tabel[cols][l] = part;
-//                 //print(tabel[0][0]);
-//                 //_menu(part);
-//                 //part.add(p);   
-//                 //part.add(p)
-//                 //p=part.padLeft(10).padRight(10);
-//                 //tabel.add(part);
-//                 //isi.add(part);
-//                 rows++;
-//               }
-//               //itemtabel++;
-//               cols++;
-//               //isi.add(p);
-//             // }
-//           }
-//           // for(int j=0; j<elements[0].children.elementAt(i).getElementsByTagName('td').length; j++){
-//           //   p = elements[0].children.elementAt(i).getElementsByTagName('td')[j].innerHtml;
-//           //   isi.add(p);
-//           // }
-//         }else if(elements[0].children.elementAt(i).localName == 'p'){
-//           p = elements[0].children.elementAt(i).innerHtml;
-//           // p = elements[0].children.elementAt(i).innerHtml;
-//           isi.add(p);
-//           cek="p";
-//           struktur.add(cek);
-//         }
-//       }
-      
-
-// //       for(dom.Element a in elements){
-// //         final jumlah = a.getElementsByTagName('p');  
-// //         List<String> p = jumlah.map((e) => e.innerHtml).toList();
-// //         isi.addAll(p);
-// //         final table = document.getElementsByTagName('table');
-// // print(a.innerHtml);
-
-// //         print(elements[0].innerHtml);
-// //         print(elements.length);
-// //         print(p.length);
-// //         print(jumlah.length);
-// //         for(dom.Element b in table){
-// //           //ind++;
-// //           final tables = b.getElementsByTagName('td');
-// //           List<String> td = tables.map((e) => e.innerHtml).toList();
-// //           isi.addAll(td);
-// //           print(td.length);
-// //         }
-// //         //ind++;
-// //       }
-//       print(isi.length);
-//       print(struktur.length);
-//       print(tabel);
-//       print(isi.indexOf('tabel'));
-//       //print(isi);
-//       //judul = header.map((e) => e.getElementsByTagName('h1')[0].innerHtml).toList();
-//       //gambar = img.map((e) => e.getElementsByTagName('img')[0].attributes['src']).toList();
-//       //for(int i =0; i<jumlah.length;i++){
-//         //String p = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toString();
-//         //String p = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toString();
-//         //isi = elements.map((e) => e.getElementsByTagName('p')[0].innerHtml).toList();
-        
-//         //isi.add(p);
-//       //}
-//       //isi=isi;
-//     /*  do{
-//         String p = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toString();
-//         //isi = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toList();
-//         isi.add(p);
-//         i++;
-//       }while(i<isi.length);//
-//       isi=isi;*/
-      
-//       /*while(i<=isi.length){
-//         String p = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toString();
-//         //isi = elements.map((e) => e.getElementsByTagName('p')[i].innerHtml).toList();
-//         isi.add(p);
-//         i++;
-//       }
-//       isi=isi;*/
-//       //isi.clear();
-//     });
-//     //isi.clear();
-//   }
-
   @override
   void initState(){
-    //isi.removeRange(0, isi.length);
-    //isi.clear();
-    //_getisi();
     super.initState();
     updateListView();
     // _dbHelper.getAllData().whenComplete(() => _dbHelper.getDataList().whenComplete(() => updateListView()));
@@ -221,20 +78,15 @@ class _BeritaViewState extends State<BeritaView> {
                             List<String> paragraf;
                             List<String> tr;
                             List<String> td;
-                            //for(int index=0; index<snapshot.data.length; index++){
-                            // paragraf = snapshot.data[index].isi.split("<>&nbsp<>,");
-                            // print(paragraf);
-                            // print(paragraf.length);
+                            
                             if(this.dataList[index].id==_beritaview){
                               int n=0;
                               int nool =0;
-                              paragraf=this.dataList[index].isi.replaceFirst('[', '').split("<>&nbsp<>, ");
+                              paragraf=this.dataList[index].isi.replaceFirst('[', '').replaceRange(this.dataList[index].isi.length-2, this.dataList[index].isi.length-1, '').split("<>&nbsp;<>, ");
                               paragraf.removeWhere((paragraf)=> paragraf=="&nbsp;");
                               print(paragraf);
                               tr=this.dataList[index].tabel.split("<<tr>>");
-                              // for(int i=0; i<tr.length; i++){
-                              //   td[i].a = tr[i].split("<<td>>");
-                              // }
+                              
                               return Container(
                                 child: Column(
                                   children: [
@@ -248,10 +100,20 @@ class _BeritaViewState extends State<BeritaView> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Container(
-                                            child: Text(this.dataList[index].authors, style: TextStyle(fontSize: 10)),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.person, size: 10, color: Colors.black,),
+                                                Text(this.dataList[index].authors, style: TextStyle(fontSize: 10)),
+                                              ],
+                                            ),
                                           ),
                                           Container(
-                                            child: Text(this.dataList[index].date, style: TextStyle(fontSize: 10)),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.access_time, size: 10, color: Colors.black,),
+                                                Text(this.dataList[index].date, style: TextStyle(fontSize: 10)),
+                                              ],
+                                            ),
                                           )
                                         ],
                                       ),
@@ -270,19 +132,47 @@ class _BeritaViewState extends State<BeritaView> {
                                             offset: Offset(3, 5)
                                             ),
                                         ],
-                                        image: DecorationImage(
-                                          image: CachedNetworkImageProvider(
-                                            //gambar.elementAt(0)??'loading',
-                                            this.dataList[index].gambar,
-                                            //scale: 1.0,
+                                      ),
+                                      child: CachedNetworkImage(
+                                        imageUrl: this.dataList?.elementAt(index)?.gambar,
+                                        imageBuilder: (context, imageProvider) => Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          // borderRadius: BorderRadius.only(
+                                          //   topLeft: Radius.circular(10),
+                                          //   topRight: Radius.circular(10)
+                                          // ),
+                                          image: DecorationImage(
+                                            image: imageProvider,
+                                            fit: BoxFit.cover,
+                                            //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
                                           ),
-                                          fit: BoxFit.fill,
-                                          //repeat: repeat,
-                                          onError: (exception, stackTrace) => "Loading...",
-                                          alignment: Alignment.center
-                                        )
+                                        ),
+                                        ),
+                                        placeholder: (context, url) => new Center(child: CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) => new Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          // borderRadius: BorderRadius.only(
+                                          //   topLeft: Radius.circular(10),
+                                          //   topRight: Radius.circular(10)
+                                          // ),
+                                          image: DecorationImage(
+                                            image: AssetImage("images/logo.png"),
+                                            fit: BoxFit.cover,
+                                            //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
+                                          ),
+                                        ),
+                                        ),
                                       ),
                                     ),    
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Text(this.dataList.elementAt(index).views.toString() ?? '')
+                                        ],
+                                      ),
+                                    ),
                                     Container(
                                       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
                                       margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
@@ -326,44 +216,35 @@ class _BeritaViewState extends State<BeritaView> {
                                             return Container(
                                             padding: EdgeInsets.fromLTRB(0, 3, 0, 3),
                                             child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                               children: <Widget>[
                                                 Container(
-                                                  //height: 20,
-                                                  decoration: BoxDecoration(
-                                                    //border: Border.all(),
-                                                  ),
-                                                  child: Text("* "),
+                                                  //width: MediaQuery.of(context).size.width*0.1,
+                                                  child: Text("o)"),
                                                 ),
                                                 Container(
-                                                  width: 290,
-                                                  //height: 30,
+                                                  width: MediaQuery.of(context).size.width*0.75,
                                                   child:
-                                                    Text(paragraf[i].replaceAll('[&nbsp;', '').replaceAll('<strong>', '').replaceAll('&nbsp;', '').replaceAll('</strong>', '').replaceAll('<em>', '').replaceAll('</em>', '').replaceAll('<>&nbsp<>]', '').replaceAll('<br>', '').replaceAll('* ', ''),),
-                                                  
+                                                    Text(paragraf[i].replaceAll(RegExp(r"<[^>]*>|&[^;]+;",multiLine: true,caseSensitive: true), '').replaceFirst('* ', ''),textAlign: TextAlign.justify),
                                                 ),
                                             ],)
                                             );
-                                          }else if(paragraf[i].startsWith(')')||paragraf[i].startsWith(')')){
+                                          }else if(paragraf[i].startsWith(')')){
                                             nool++;
                                             return Container(
                                             padding: EdgeInsets.fromLTRB(0, 3, 0, 3),
                                             child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                               children: <Widget>[
                                                 Container(
-                                                  //height: 20,
-                                                  decoration: BoxDecoration(
-                                                    //border: Border.all(),
-                                                  ),
                                                   child: Text(nool.toString()+")"),
                                                 ),
                                                 Container(
-                                                  width: 280,
-                                                  //height: 30,
+                                                  width: MediaQuery.of(context).size.width*0.75,
                                                   child:
-                                                    Text(paragraf[i].replaceAll('[&nbsp;', '').replaceAll('<strong>', '').replaceAll('&nbsp;', '').replaceAll('</strong>', '').replaceAll('<em>', '').replaceAll('</em>', '').replaceAll('<>&nbsp<>]', '').replaceAll('<br>', '').replaceAll('* ', '').replaceFirst(') ', ''),),
-                                                  
+                                                    Text(paragraf[i].replaceAll(RegExp(r"<[^>]*>|&[^;]+;",multiLine: true,caseSensitive: true), '').replaceFirst(') ', ''),textAlign: TextAlign.justify),                            
                                                 ),
                                             ],)
                                             );
@@ -371,7 +252,7 @@ class _BeritaViewState extends State<BeritaView> {
                                             nool=0;
                                             return Container(
                                             padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                            child: Text(paragraf[i].replaceAll('[&nbsp;', '').replaceAll('<strong>', '').replaceAll('&nbsp;', '').replaceAll('</strong>', '').replaceAll('<em>', '').replaceAll('</em>', '').replaceAll('<>&nbsp<>]', '').replaceAll('<br>', '').replaceAll('<i>', '').replaceAll('</i>', ''), textAlign: TextAlign.justify),
+                                            child: Text(paragraf[i].replaceAll(RegExp(r"<[^>]*>|&[^;]+;",multiLine: true,caseSensitive: true), ''), textAlign: TextAlign.justify),
                                             );
                                           }
                                         }
@@ -541,11 +422,11 @@ class _BeritaViewState extends State<BeritaView> {
         );
       }
       
-    Widget _menu(String nama, int index) {
-      //for(int i=0; i<3; i++){
-        return Text(nama, style: new TextStyle(fontWeight: FontWeight.bold));
-      //}  
-    } 
+    // Widget _menu(String nama, int index) {
+    //   //for(int i=0; i<3; i++){
+    //     return Text(nama, style: new TextStyle(fontWeight: FontWeight.bold));
+    //   //}  
+    // } 
     void updateListView() {
     final Future<Database> dbFuture = _dbHelper.initDb();
     dbFuture.then((database) {
