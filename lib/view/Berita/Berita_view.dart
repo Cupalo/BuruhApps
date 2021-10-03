@@ -59,7 +59,7 @@ class _BeritaViewState extends State<BeritaView> {
             children: <Widget>[
                   Container(
                     margin: EdgeInsets.all(5),
-                    padding: EdgeInsets.all(18),
+                    padding: EdgeInsets.all(10),
                     //padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 18.0),
                     //height: MediaQuery.of(context).size.height * 0.35,
                     child: 
@@ -102,7 +102,7 @@ class _BeritaViewState extends State<BeritaView> {
                                           Container(
                                             child: Row(
                                               children: [
-                                                Icon(Icons.person, size: 10, color: Colors.black,),
+                                                Icon(Icons.person, size: 10),
                                                 Text(this.dataList[index].authors, style: TextStyle(fontSize: 10)),
                                               ],
                                             ),
@@ -110,7 +110,7 @@ class _BeritaViewState extends State<BeritaView> {
                                           Container(
                                             child: Row(
                                               children: [
-                                                Icon(Icons.access_time, size: 10, color: Colors.black,),
+                                                Icon(Icons.access_time, size: 10),
                                                 Text(this.dataList[index].date, style: TextStyle(fontSize: 10)),
                                               ],
                                             ),
@@ -121,18 +121,18 @@ class _BeritaViewState extends State<BeritaView> {
                                     Container(
                                       padding: EdgeInsets.fromLTRB(0, 3, 0, 3),
                                       margin: EdgeInsets.fromLTRB(5, 3, 5, 3),
-                                      height: 200,
+                                      height: 300,
                                       //width: 400,
-                                      // decoration: BoxDecoration(
-                                      //   borderRadius: BorderRadius.circular(10),
-                                      //   // color: Colors.grey,
-                                      //   boxShadow: [
-                                      //     BoxShadow(
-                                      //       color: Colors.grey.withOpacity(0.25),
-                                      //       offset: Offset(3, 5)
-                                      //       ),
-                                      //   ],
-                                      // ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        // color: Colors.grey,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.25),
+                                            offset: Offset(3, 3)
+                                            ),
+                                        ],
+                                      ),
                                       child: CachedNetworkImage(
                                         imageUrl: this.dataList?.elementAt(index)?.gambar,
                                         imageBuilder: (context, imageProvider) => Container(
@@ -144,7 +144,7 @@ class _BeritaViewState extends State<BeritaView> {
                                           // ),
                                           image: DecorationImage(
                                             image: imageProvider,
-                                            //fit: BoxFit.cover,
+                                            fit: BoxFit.cover,
                                             //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
                                           ),
                                         ),

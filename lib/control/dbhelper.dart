@@ -180,7 +180,16 @@ class DbHelper{
             print("Penulis : "+authors);
             final dates = document3.getElementsByClassName("date meta-item");
             final datess = dates[0].children.elementAt(1).innerHtml.split('/').reversed.toString();
-            final date = datess.replaceAll('(', '').replaceAll(')', '').replaceAll(', ', '-');
+            String date = datess.replaceAll('(', '').replaceAll(')', '').replaceAll(', ', '-');
+            // if(datess.contains('hari')){
+            //   double a = double.parse(datess.replaceAll(RegExp(r'\D'), ''));
+            //   double b = 1000/a;
+            //   date = datess.replaceAll(RegExp(r'\d'), b.toInt().toString()).replaceFirst(' ', '000000 ').replaceAll('(', '').replaceAll(')', '');
+            // }else if(datess.contains('minggu')){
+            //   double a = double.parse(datess.replaceAll(RegExp(r'\D'), ''));
+            //   double b = 1000/a;
+            //   date = datess.replaceAll(RegExp(r'\d'), b.toInt().toString()).replaceFirst(' ', '00000 ').replaceAll('(', '').replaceAll(')', '');
+            // }
             print("Waktu : "+date);
             final view = document3.getElementsByClassName("meta-views meta-item");
             final view2 = view.elementAt(0).innerHtml.replaceAll(RegExp(r"<[^>]*>|&[^;]+;",multiLine: true,caseSensitive: true), '').replaceAll('.', '').replaceAll(' ', '');

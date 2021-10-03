@@ -160,6 +160,16 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Row(
                       children: <Widget>[
+                        // Container(
+                        //   margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        //   padding: EdgeInsets.all(2),
+                        //   //color: Colors.white,
+                        //   decoration: BoxDecoration(
+                        //     color: Colors.white,
+                        //     borderRadius: BorderRadius.circular(100)
+                        //   ),
+                        //   child: Icon(Icons.event_note, size: 30.0, color: Colors.red[800]),
+                        // ),
                         Icon(Icons.event_note, size: 30.0, color: Colors.red[800]),
                         Text("Berita Terkini", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                       ],

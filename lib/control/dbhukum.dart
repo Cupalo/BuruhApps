@@ -119,7 +119,7 @@ class DbHukum{
           //print(i);
           final aTag = dataPerTitle.children.elementAt(i).getElementsByTagName('a')[0];
           final pTag = dataPerTitle.children.elementAt(i).getElementsByTagName('p')[0];
-          final title = aTag.innerHtml;
+          final title = aTag.innerHtml.replaceAll(RegExp(r"<[^>]*>|&[^;]+;",multiLine: true,caseSensitive: true), '');
           String urlss = 'https://jdih.kemnaker.go.id/';
           final urls = urlss+aTag.attributes['href'];
           final subtitle = pTag.innerHtml;

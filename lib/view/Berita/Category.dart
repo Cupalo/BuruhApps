@@ -102,8 +102,8 @@ class _CategoryState extends State<Category> {
               this.filter.length>1 
               ?
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 18.0),
-                height: MediaQuery.of(context).size.height * 0.35,
+                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.03, vertical: MediaQuery.of(context).size.height * 0.01),
+                height: MediaQuery.of(context).size.height * 0.33,
                 // width: MediaQuery.of(context).size.width * 0.2,
                 child: ListView.builder(
                   itemCount: this.count>0? this.count : 1,
@@ -174,168 +174,47 @@ class _CategoryState extends State<Category> {
       child: Column(
         children: [
           Container(
-                  margin: EdgeInsets.fromLTRB(18, 18, 18, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.event_note, size: 30.0, color: Colors.red[800]),
-                      Text(_category, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                    ],
-                  )),
-
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 18.0),
-                height: MediaQuery.of(context).size.height * 0.35,
-                // width: MediaQuery.of(context).size.width * 0.2,
-                child: ListView.builder(
-                  itemCount: this.count>0? this.count : 1,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    if(this.count>0){
-                      if(this.dataList.elementAt(index).category.compareTo(_category)==0){
-                        return 
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute( //index array
-                                builder: (context) => BeritaView(this.dataList?.elementAt(index)?.id ?? 0)),
-                            );
-                          },
-                          child: Container(
-                            //padding: EdgeInsets.all(18),
-                            margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                            //height: 50,
-                            width: MediaQuery.of(context).size.width*0.44,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              // color: Colors.grey,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.35),
-                                  //color: Colors.red,
-                                  offset: Offset(3, 5)
-                                )
-                              ],
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                //Container(),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * 0.19,
-                                  //height: 130,
-                                  child: CachedNetworkImage(
-                                    imageUrl: this.dataList?.elementAt(index)?.gambar,
-                                    imageBuilder: (context, imageProvider) => Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)
-                                      ),
-                                      image: DecorationImage(
-                                        image: imageProvider,
-                                        fit: BoxFit.cover,
-                                        //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
-                                      ),
-                                    ),
-                                    ),
-                                    placeholder: (context, url) => new Center(child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) => new Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage("images/logo.png"),
-                                        fit: BoxFit.cover,
-                                        //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
-                                      ),
-                                    ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(6),
-                                  height: MediaQuery.of(context).size.height * 0.10,
-                                  //height: 70,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10)
-                                    ),
-                                    color: Colors.red[800],
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: double.infinity,
-                                        child: Text(this.dataList?.elementAt(index)?.title ?? "Loading . . .",
-                                          maxLines: 3,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12)
-                                          )
-                                      ),
-                                      Container(
-                                        width: double.infinity,
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(Icons.person, size: 8, color: Colors.white,),
-                                                Text(this.dataList?.elementAt(index)?.authors ?? '',
-                                                  maxLines: 1,textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 8)
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Icon(Icons.access_time, size: 8, color: Colors.white,),
-                                                Text(this.dataList?.elementAt(index)?.date ?? '',
-                                                  maxLines: 1,textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 8)
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        )
-                                      ),
-                                    ]
-                                  ),
-                                ),
-                              ]
-                            ),
-                          ),
-                        );
-                      }else{
-                        return Container();
-                      }
-                    }else{
-                      return 
-                      Container(
-                        alignment: Alignment.center,
-                        width: 320,
-                        // decoration: BoxDecoration(
-                        //   border: Border.all()
-                        // ),
-                        child: Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
-                    }
+            margin: EdgeInsets.fromLTRB(18, 18, 18, 0),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.event_note, size: 30.0, color: Colors.red[800]),
+                Text(_category, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+              ],
+            )
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.03, vertical: MediaQuery.of(context).size.height * 0.01),
+            height: MediaQuery.of(context).size.height * 0.33,
+            // padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 18.0),
+            // height: MediaQuery.of(context).size.height * 0.35,
+            // width: MediaQuery.of(context).size.width * 0.2,
+            child: ListView.builder(
+              itemCount: this.count>0? this.count : 1,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                if(this.count>0){
+                  if(this.dataList.elementAt(index).category.compareTo(_category)==0){
+                    return 
+                    _result(index);
+                  }else{
+                    return Container();
                   }
-                )
-              ),
+                }else{
+                  return 
+                  Container(
+                    alignment: Alignment.center,
+                    width: 320,
+                    // decoration: BoxDecoration(
+                    //   border: Border.all()
+                    // ),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              }
+            )
+          ),
         ],
       ),
     );
@@ -343,129 +222,141 @@ class _CategoryState extends State<Category> {
 
   Widget _result(int index){
     return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute( //index array
-                                builder: (context) => BeritaView(this.dataList?.elementAt(index)?.id ?? 0)),
-                            );
-                          },
-                          child: Container(
-                            //padding: EdgeInsets.all(18),
-                            margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                            //height: 50,
-                            width: MediaQuery.of(context).size.width*0.44,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              // color: Colors.grey,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.35),
-                                  //color: Colors.red,
-                                  offset: Offset(3, 5)
-                                )
-                              ],
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute( //index array
+            builder: (context) => BeritaView(this.dataList?.elementAt(index)?.id ?? 0)),
+        );
+      },
+      child: Container(
+        //padding: EdgeInsets.all(18),
+        //margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.02, vertical: MediaQuery.of(context).size.height * 0.01),
+        //height: 50,
+        width: MediaQuery.of(context).size.width*0.44,
+        //width: 160,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          // color: Colors.grey,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.35),
+              //color: Colors.red,
+              offset: Offset(3, 5)
+            )
+          ],
+          // image: DecorationImage(
+          //     image: CachedNetworkImageProvider(
+          //         this.dataList?.elementAt(index)?.gambar ?? Icon(Icons.error),             
+          //         ),
+          //     fit: BoxFit.fitHeight,
+          //     }
+          //   )
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            //Container(),
+            Container(
+              //height: MediaQuery.of(context).size.height * 0.192774,
+              height: MediaQuery.of(context).size.height * 0.19,
+              //height: 135,
+              //width: MediaQuery.of(context).size.width*0.44,
+              //height: 130,
+              child: CachedNetworkImage(
+                imageUrl: this.dataList?.elementAt(index)?.gambar,
+                imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)
+                  ),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                    //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
+                  ),
+                ),
+                ),
+                placeholder: (context, url) => new Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => new Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage("images/logo.png"),
+                    fit: BoxFit.cover,
+                    //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
+                  ),
+                ),
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(6),
+              height: MediaQuery.of(context).size.height * 0.10,
+              //height: 70,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)
+                ),
+                color: Colors.red[800],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: double.infinity,
+                    child: Text(this.dataList?.elementAt(index)?.title ?? "Loading . . .",
+                      maxLines: 3,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12)
+                      )
+                  ),
+                  Container(
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.person, size: 8, color: Colors.white,),
+                            Text(this.dataList?.elementAt(index)?.authors ?? '',
+                              maxLines: 1,textAlign: TextAlign.right,
+                              style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8)
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                //Container(),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * 0.19,
-                                  //height: 130,
-                                  child: CachedNetworkImage(
-                                    imageUrl: this.dataList?.elementAt(index)?.gambar,
-                                    imageBuilder: (context, imageProvider) => Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)
-                                      ),
-                                      image: DecorationImage(
-                                        image: imageProvider,
-                                        fit: BoxFit.cover,
-                                        //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
-                                      ),
-                                    ),
-                                    ),
-                                    placeholder: (context, url) => new Center(child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) => new Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage("images/logo.png"),
-                                        fit: BoxFit.cover,
-                                        //colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
-                                      ),
-                                    ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(6),
-                                  height: MediaQuery.of(context).size.height * 0.10,
-                                  //height: 70,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10)
-                                    ),
-                                    color: Colors.red[800],
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: double.infinity,
-                                        child: Text(this.dataList?.elementAt(index)?.title ?? "Loading . . .",
-                                          maxLines: 3,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12)
-                                          )
-                                      ),
-                                      Container(
-                                        width: double.infinity,
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(Icons.person, size: 8, color: Colors.white,),
-                                                Text(this.dataList?.elementAt(index)?.authors ?? '',
-                                                  maxLines: 1,textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 8)
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Icon(Icons.access_time, size: 8, color: Colors.white,),
-                                                Text(this.dataList?.elementAt(index)?.date ?? '',
-                                                  maxLines: 1,textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 8)
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        )
-                                      ),
-                                    ]
-                                  ),
-                                ),
-                              ]
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.access_time, size: 8, color: Colors.white,),
+                            Text(this.dataList?.elementAt(index)?.date ?? '',
+                              maxLines: 1,textAlign: TextAlign.right,
+                              style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8)
                             ),
-                          ),
-                        );
+                          ],
+                        )
+                      ],
+                    )
+                  ),
+                ]
+              ),
+            ),
+          ]
+        ),
+      ),
+    );
   }
   // Widget _searchresult(String _filter){
   //   return Container(
