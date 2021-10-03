@@ -12,6 +12,10 @@ class Data {
 
   Data({this.id, this.title, this.url, this.gambar, this.isi, this.tabel, this.authors, this.date, this.category, this.views});
 
+// res di loop
+// res[i].caption
+  // res.caption.rendered
+  // res.source_url : 
   Data.fromMap(Map<String, dynamic> map) {
     this.id = map['id'];
     this.title = map['title'];
