@@ -44,17 +44,23 @@ class _HukumViewState extends State<HukumView> {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height*0.1,
+            height: MediaQuery.of(context).size.height*0.08,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            //padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide()
+              )
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 this.cek 
                 ? Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    //padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     width: MediaQuery.of(context).size.width*0.8,
                     child: TextField(
                       controller: searchController,
@@ -67,18 +73,18 @@ class _HukumViewState extends State<HukumView> {
                         hintText: 'Search',
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
+                          borderRadius: BorderRadius.circular(10.0)),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
+                            borderRadius: BorderRadius.circular(10.0),
                             borderSide:BorderSide(color: Colors.red[800], width: 2.5),
                           )
                         ),
                     ),
                   )
                 : Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    //padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     width: MediaQuery.of(context).size.width*0.8,
-                    child: Text("Daftar UU Ketenagakerjaan", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                    child: Text("Daftar UU Ketenagakerjaan", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
                   ),
                 
                 this.cek 
@@ -128,7 +134,7 @@ class _HukumViewState extends State<HukumView> {
           // ),
           //ListView-------------------
           Container(
-            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            //padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
             child: ListView.builder(
               itemCount: this.count>0 ? this.count : 1,
               primary: false,
@@ -147,7 +153,7 @@ class _HukumViewState extends State<HukumView> {
                         // tileColor: Colors.white38,
                         // hoverColor: Colors.black26,
                         //contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                        leading: Icon(Icons.picture_as_pdf),
+                        //leading: Icon(Icons.picture_as_pdf),
                         title: Text(this.uuList?.elementAt(index)?.title ?? 'Loading...'),
                         subtitle: Text(this.uuList?.elementAt(index)?.subtitle ?? ''),
                         trailing: Icon(Icons.navigate_next)
@@ -165,7 +171,7 @@ class _HukumViewState extends State<HukumView> {
                           // tileColor: Colors.white38,
                           // hoverColor: Colors.black26,
                           //contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                          leading: Icon(Icons.picture_as_pdf),
+                          //leading: Icon(Icons.picture_as_pdf),
                           title: Text(this.uuList?.elementAt(index)?.title ?? 'Loading...'),
                           subtitle: Text(this.uuList?.elementAt(index)?.subtitle ?? ''),
                           trailing: Icon(Icons.navigate_next)

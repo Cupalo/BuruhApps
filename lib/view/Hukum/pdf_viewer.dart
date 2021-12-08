@@ -273,7 +273,8 @@ class _PdfViewerState extends State<PdfViewer> {
   //get storage permission
   void getPermission() async {
     print("getPermission");
-    await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+    //await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+    await Permission.storage.request().isGranted;
   }
 
   void download()async{

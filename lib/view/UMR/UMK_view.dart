@@ -34,6 +34,7 @@ class _UMKViewState extends State<UMKView> {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         children: <Widget>[
           // Container(
           //   child: Column(children: <Widget>[
@@ -60,15 +61,20 @@ class _UMKViewState extends State<UMKView> {
           this.count>0
           ?
           Container(
-            height: MediaQuery.of(context).size.height*0.1,
+            height: MediaQuery.of(context).size.height*0.08,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide()
+              )
+            ),
+            //padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 this.cek 
                 ? Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    //padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     width: MediaQuery.of(context).size.width*0.8,
                     child: TextField(
                       controller: searchController,
@@ -81,16 +87,16 @@ class _UMKViewState extends State<UMKView> {
                         hintText: 'Search',
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
+                          borderRadius: BorderRadius.circular(10.0)),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
+                            borderRadius: BorderRadius.circular(10.0),
                             borderSide:BorderSide(color: Colors.red[800], width: 2.5),
                           )
                         ),
                     ),
                   )
                 : Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    //padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     width: MediaQuery.of(context).size.width*0.8,
                     child: Text("Daftar Upah Minimum Regional (UMR)", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
                   ),
@@ -146,7 +152,7 @@ class _UMKViewState extends State<UMKView> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
-                                width: MediaQuery.of(context).size.width*0.1,
+                                width: MediaQuery.of(context).size.width*0.0535,
                                 child: Icon(Icons.navigate_next, size: 20),
                               ),
                               Container(
@@ -201,27 +207,27 @@ class _UMKViewState extends State<UMKView> {
   Widget umrview(int index){
     return 
       Container(
-        margin: EdgeInsets.fromLTRB(2, 0, 2, 5),
-        padding: EdgeInsets.all(5),
-        height: MediaQuery.of(context).size.height*0.1,
-        width: MediaQuery.of(context).size.width*0.8,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.grey),
-          //color: Colors.white,
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.35),
-            //     offset: Offset(3, 5)
-            //   )
-            // ],
-          ),
+        margin: EdgeInsets.fromLTRB(2, 0, 2, 0),
+        //padding: EdgeInsets.all(5),
+        height: MediaQuery.of(context).size.height*0.05,
+        width: MediaQuery.of(context).size.width*0.87,
+        // decoration: BoxDecoration(
+        //   borderRadius: BorderRadius.circular(10),
+        //   border: Border.all(color: Colors.grey),
+        //   //color: Colors.white,
+        //     // boxShadow: [
+        //     //   BoxShadow(
+        //     //     color: Colors.grey.withOpacity(0.35),
+        //     //     offset: Offset(3, 5)
+        //     //   )
+        //     // ],
+        //   ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 10),
-              width: MediaQuery.of(context).size.width*0.42,
+              //padding: EdgeInsets.only(left: 10),
+              width: MediaQuery.of(context).size.width*0.60,
               //color: Colors.red,
               child: Text(
                 this.umrList?.elementAt(index)?.title?.replaceAll(RegExp(r'\d'), '') ?? 'Loading . . .', 
@@ -229,10 +235,10 @@ class _UMKViewState extends State<UMKView> {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width*0.35,
+              width: MediaQuery.of(context).size.width*0.25,
               //color: Colors.red,
               child: Text(
-                this.umrList?.elementAt(index)?.cost ?? 'slow broo', 
+                this.umrList?.elementAt(index)?.cost?.replaceAll('Rp', '') ?? 'slow broo', 
                 style: TextStyle(fontSize: 16),
               )
             )

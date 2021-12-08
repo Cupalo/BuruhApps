@@ -102,10 +102,10 @@ class _KalkulatorViewState extends State<KalkulatorView> {
                 hintText: 'Masukkan Nilai Upah (Rupiah)',
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0)
+                  borderRadius: BorderRadius.circular(10.0)
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   borderSide:BorderSide(color: Colors.red[800], width: 2.5),
                 )
               ),
@@ -145,10 +145,10 @@ class _KalkulatorViewState extends State<KalkulatorView> {
                 hintText: 'Masukkan Masa Kerja (Tahun)',
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0)
+                  borderRadius: BorderRadius.circular(10.0)
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   borderSide:BorderSide(color: Colors.red[800], width: 2.5),
                 )
               ),

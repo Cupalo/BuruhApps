@@ -16,6 +16,7 @@ class Data {
 // res[i].caption
   // res.caption.rendered
   // res.source_url : 
+  //https://buruh.co/wp-json/wp/v2/posts?filter[orderby]=date&order=desc&page=3&_embed
   Data.fromMap(Map<String, dynamic> map) {
     this.id = map['id'];
     this.title = map['title'];
